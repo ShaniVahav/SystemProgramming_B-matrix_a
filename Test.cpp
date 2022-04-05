@@ -896,3 +896,27 @@ TEST_CASE("Good input for operator*=")
 
     }
 }
+
+
+
+/*
+* Go over all the invalid characters
+*/
+TEST_CASE("Bad input")
+{
+    vector<double> arr;
+    double ch;
+    for (int i = 0; i <= 47; ++i)
+    {
+        ch = i;
+        arr = { ch };
+        CHECK_THROWS(Matrix mat(arr, 1, 1));
+    }
+
+    for (int i = 58; i <= 177; ++i)
+    {
+        ch = i;
+        arr = { ch };
+        CHECK_THROWS(Matrix mat(arr, 1, 1));
+    }
+}
