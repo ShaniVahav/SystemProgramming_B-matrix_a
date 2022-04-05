@@ -898,25 +898,22 @@ TEST_CASE("Good input for operator*=")
 }
 
 
-
 /*
-* Go over all the invalid characters
+* Worng matrix multiplication
 */
 TEST_CASE("Bad input")
 {
-    vector<double> arr;
-    double ch;
-    for (int i = 0; i <= 47; ++i)
-    {
-        ch = i;
-        arr = { ch };
-        CHECK_THROWS(Matrix mat(arr, 1, 1));
-    }
+    vector<double> rand_arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 
-    for (int i = 58; i <= 177; ++i)
+    int format[] = { 43, 34, 26, 62, 121, 112 }; // it means: 4x3, 3x4, 2x6, 6x2, 12x1, 1x12
+
+    for (size_t j = 0; j < 6; ++j)  // check for all the 6 format
     {
-        ch = i;
-        arr = { ch };
-        CHECK_THROWS(Matrix mat(arr, 1, 1));
+        int row = format[j] / 10;
+        int col = format[j] % 10;
+        Matrix mat1{ rand_arr, row, col };
+        Matrix mat2{ rand_arr, row, col };
+
+        CHECK_THROWS(mat1 * mat2);
     }
 }
