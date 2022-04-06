@@ -23,36 +23,36 @@ namespace zich {
             this->setMatrix(members, row, col);
         }
 
-        Matrix operator+(const Matrix&);//
-        Matrix& operator+=(const Matrix&);//
-        Matrix& operator+();//
+        Matrix operator+(const Matrix&);
+        Matrix& operator+=(const Matrix&);
+        Matrix& operator+();  // unari+
 
-        Matrix operator-(const Matrix&);//
-        Matrix& operator-=(const Matrix&);//
-        Matrix& operator-();//
+        Matrix operator-(const Matrix&);
+        Matrix& operator-=(const Matrix&);
+        Matrix operator-() const;  // unari-
 
-        bool operator>(const Matrix&);//
-        bool operator>=(const Matrix&);//
+        bool operator>(const Matrix&) const;
+        bool operator>=(const Matrix&) const;
 
-        bool operator<(const Matrix&);//
-        bool operator<=(const Matrix&);//
+        bool operator<(const Matrix&) const;
+        bool operator<=(const Matrix&) const;
 
-        bool operator==(const Matrix&);//
-        bool operator!=(const Matrix&);//
+        bool operator==(const Matrix&) const;
+        bool operator!=(const Matrix&) const;
 
-        Matrix& operator++();//
-        Matrix& operator++(int);//
-        Matrix& operator--();//
-        Matrix& operator--(int);//
+        Matrix& operator++();  // prefix increment operator.
+        Matrix& operator++(int);  // postfix increment operator.
+        Matrix& operator--();
+        Matrix& operator--(int);
 
-        Matrix operator*(const Matrix&);
-        Matrix operator*(const double);
+        Matrix operator*(const Matrix&) const;
+        Matrix operator*(const double) const;
         friend Matrix operator*(double, Matrix&);
         Matrix& operator*=(const Matrix&);
         Matrix& operator*=(const double);
 
-        friend ostream& operator<<(ostream&, Matrix const&);//
-        friend istream& operator>>(istream&, Matrix&);//
+        friend ostream& operator<<(ostream&, Matrix const&);
+        friend istream& operator>>(istream&, Matrix&);
 
         void setMatrix(const vector<double>& v, int row, int);
     };

@@ -13,24 +13,24 @@ namespace zich {
 
 	Matrix Matrix::operator-(const Matrix&) { return mat; }
 	Matrix& Matrix::operator-=(const Matrix&) { return *this; }
-	Matrix& Matrix::operator-() { return *this; }
+	Matrix Matrix::operator-() const { return mat; }
 
-	bool Matrix::operator>(const Matrix&) { return true; }
-	bool Matrix::operator>=(const Matrix&) { return true; }
+	bool Matrix::operator>(const Matrix&) const { return true; }
+	bool Matrix::operator>=(const Matrix&) const { return true; }
 
-	bool Matrix::operator<(const Matrix&) { return true; }
-	bool Matrix::operator<=(const Matrix&) { return true; }
+	bool Matrix::operator<(const Matrix&) const { return true; }
+	bool Matrix::operator<=(const Matrix&) const { return true; }
 
-	bool Matrix::operator==(const Matrix&) { return true; }
-	bool Matrix::operator!=(const Matrix&) { return true; }
+	bool Matrix::operator==(const Matrix&) const { return true; }
+	bool Matrix::operator!=(const Matrix&) const { return true; }
 
 	Matrix& Matrix::operator++() { return *this; }
 	Matrix& Matrix::operator++(int) { return *this; }
 	Matrix& Matrix::operator--() { return *this; }
 	Matrix& Matrix::operator--(int) { return *this; }
 
-	Matrix Matrix::operator*(const Matrix&) { return mat; }
-	Matrix Matrix::operator*(const double) { return mat; }
+	Matrix Matrix::operator*(const Matrix&) const { return mat; }
+	Matrix Matrix::operator*(const double) const { return mat; }
 	Matrix operator*(double, Matrix&) { return mat; }
 	Matrix& Matrix::operator*=(const Matrix&) { return *this; }
 	Matrix& Matrix::operator*=(const double) { return *this; }
